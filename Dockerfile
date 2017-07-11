@@ -4,7 +4,7 @@ MAINTAINER cubesky
 
 RUN apt update
 
-RUN apt install -y openssh-server
+RUN apt install -y openssh-server screen
 RUN mkdir -p /var/run/sshd
 RUN echo 'root:cubesky' |chpasswd
 
