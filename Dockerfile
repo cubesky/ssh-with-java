@@ -6,7 +6,9 @@ RUN apt update
 
 RUN apt install -y openssh-server screen
 RUN mkdir -p /var/run/sshd
-RUN echo 'root:cubesky' |chpasswd
+RUN sed 's/PermitRootLogin\ prohibit\-password/PermitRootLogin\ yes/g' /etc/ssh/sshd_config
+RUN sed 's/PermitRootLogin\ no/PermitRootLogin\ yes/g' /etc/ssh/sshd_config
+RUN echo "root:cubesky" | chpasswd
 
 # ADD Server.tar /mcserver
 
