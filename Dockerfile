@@ -4,7 +4,7 @@ MAINTAINER cubesky
 
 RUN apt update
 
-RUN apt install -y openssh-server screen
+RUN apt install -y openssh-server screen nano wget curl
 RUN mkdir -p /var/run/sshd
 RUN sed -i 's/PermitRootLogin\ prohibit\-password/PermitRootLogin\ yes/g' /etc/ssh/sshd_config
 RUN sed -i 's/PermitRootLogin\ no/PermitRootLogin\ yes/g' /etc/ssh/sshd_config
